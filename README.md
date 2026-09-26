@@ -11,9 +11,9 @@ This is not a payment app. It's the infrastructure underneath financial
 movement — built as one continuous system across the remaining days of the
 100 Days of Code challenge, rather than a series of unrelated projects.
 
-## Day 14 scope (this scaffold)
+## scope (this scaffold)
 
-Day 14 = **Architecture & Transaction Core**. What's here right now:
+**Architecture & Transaction Core**. What's here right now:
 
 - Project skeleton matching the target architecture (see `docs/ARCHITECTURE.md`)
 - `docker-compose.yml` bringing up Postgres, Redis, and RabbitMQ
@@ -88,5 +88,4 @@ projects (5432–5436, 5445, 5446, 5544 for Postgres; 6379, 6389, 6396, 6400,
 
 ## Project layout
 
-See `docs/ARCHITECTURE.md` for the full target architecture and the Day
-12–20 (now 14–22) build plan.
+See `docs/ARCHITECTURE.md` for the full target architecture and build plan.
