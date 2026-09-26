@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: orbisflow-postgres
+    environment:
+      POSTGRES_USER: orbisflow
+      POSTGRES_PASSWORD: orbisflow
+      POSTGRES_DB: orbisflow
+    ports:
+      - "5447:5432"
+    volumes:
+      - orbisflow-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orbisflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: orbisflow-redis
+    ports:
+      - "6402:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: orbisflow-rabbitmq
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: orbisflow
+      RABBITMQ_DEFAULT_PASS: orbisflow
+
+volumes:
+  orbisflow-pgdata:
